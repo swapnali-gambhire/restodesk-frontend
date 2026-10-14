@@ -77,14 +77,3 @@ body {
 .login-card button:hover {
   background: #c2410c;
 }
-
-.login-card button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.login-error {
-  color: #dc2626;
-  font-size: 13px;
-  margin-bottom: 12px;
-}
