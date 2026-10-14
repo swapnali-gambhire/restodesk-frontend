@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RestoDesk - Login</title>
+  <link rel="stylesheet" href="../css/pages/login.css" />
+</head>
+<body>
+  <main class="login-page">
+    <form class="login-card" id="loginForm" novalidate>
+      <h1 class="login-title">RestoDesk</h1>
+      <p class="login-subtitle">Sign in to your account</p>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="••••••••" required />
+
+      <p class="login-error" id="loginError" hidden></p>
+
+      <button type="submit" id="loginBtn">Sign in</button>
+    </form>
+  </main>
+
+  <script type="module" src="../js/screens/login.js"></script>
+</body>
+</html>
