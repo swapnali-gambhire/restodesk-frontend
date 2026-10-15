@@ -1,70 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Restaurant</title>
-<style>
-  body { margin: 0; display: flex; font-family: Arial, sans-serif; }
-
-  aside { width: 240px; min-height: 100vh; background: #1e293b; padding: 20px; }
-  main { padding: 30px; }
-
-  a { display: block; color: #ddd; text-decoration: none; padding: 10px; border-radius: 8px; }
-  a:hover { background: rgba(255,255,255,.1); }
-
-  /* hidden by default, shown when parent has class "open" */
-  .sub { display: none; margin-left: 15px; border-left: 1px solid #555; padding-left: 8px; }
-  .open > .sub { display: block; }
-
-  /* status dots */
-  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
-  .free { background: #22c55e; }
-  .occupied { background: #ef4444; }
-  .reserved { background: #f59e0b; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurant dashboard</title>
+  <link rel="stylesheet" href="/css/pages/dashboard.css">
 </head>
-<body>
+<body class="dashboard">
 
-<aside>
-  <div id="overview">
-    <a href="#" onclick="toggle('overview')">📊 Overview ▾</a>
+  <aside class="sidebar">
+    <span class="brand">🍽️ Restaurant</span>
 
-    <div class="sub">
-      <div id="tables">
-        <a href="#" onclick="toggle('tables')">🪑 Tables ▾</a>
+    <nav>
+      <!-- Overview dropdown -->
+      <button class="nav-link" type="button" data-toggle="overviewMenu" aria-expanded="true">
+        📊 Overview <span class="arrow">▲</span>
+      </button>
 
-        <div class="sub">
-          <a href="#" onclick="pick(1)"><span class="dot free"></span>Table 1</a>
-          <a href="#" onclick="pick(2)"><span class="dot occupied"></span>Table 2</a>
-          <a href="#" onclick="pick(3)"><span class="dot reserved"></span>Table 3</a>
-          <a href="#" onclick="pick(4)"><span class="dot free"></span>Table 4</a>
-        </div>
+      <div id="overviewMenu">
+        <!-- Tables dropdown -->
+        <button class="nav-link" type="button" data-toggle="tablesSubmenu" aria-expanded="true">
+          🪑 Tables <span class="arrow">▲</span>
+        </button>
+        <div id="tablesSubmenu"><!-- filled by dashboard.js --></div>
+
+        <a href="#">📋 Menu</a>
+        <a href="#">🧾 Order</a>
+        <a href="/screens/reports">📈 Reports</a>
       </div>
 
-      <a href="#">📋 Menu</a>
-      <a href="#">🧾 Order</a>
-      <a href="/reports.html">📈 Reports</a>
+      <div class="group-label">Manage</div>
+      <a href="#">👨‍🍳 Kitchen</a>
+      <a href="#">👥 Customers</a>
+      <a href="#">📦 Inventory</a>
+      <a href="#">🧑‍💼 Staff</a>
+      <a href="/screens/settings">⚙️ Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1 id="tableTitle">Table 1</h1>
+    <p class="meta" id="tableMeta">2 seats · Free</p>
+
+    <h2>Change status</h2>
+    <div class="status-actions" id="statusActions">
+      <button class="status-btn" type="button" data-status="free">Free</button>
+      <button class="status-btn" type="button" data-status="occupied">Occupied</button>
+      <button class="status-btn" type="button" data-status="reserved">Reserved</button>
     </div>
-  </div>
 
-  <a href="/settings.html">⚙️ Settings</a>
-</aside>
+    <h2>Orders on this table</h2>
+    <div class="orders-card">No orders yet. Start one from the Order screen.</div>
+  </main>
 
-<main>
-  <h1 id="title">Overview</h1>
-</main>
-
-<script>
-  // open / close a menu
-  function toggle(id) {
-    document.getElementById(id).classList.toggle("open");
-  }
-
-  // click on a table
-  function pick(number) {
-    document.getElementById("title").innerText = "Table " + number;
-  }
-</script>
-
+  <script src="/js/screens/dashboard.js"></script>
 </body>
 </html>
