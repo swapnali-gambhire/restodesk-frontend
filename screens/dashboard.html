@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurant dashboard</title>
+  <link rel="stylesheet" href="/css/pages/dashboard.css">
+</head>
+<body class="dashboard" data-page="dashboard">
+
+  <aside class="sidebar">
+    <span class="brand">🍽️ Restaurant...</span>
+
+    <nav>
+      <!-- Overview dropdown -->
+      <button class="nav-link" type="button" data-toggle="overviewMenu" aria-expanded="true">
+        📊 Overview <span class="arrow">▲</span>
+      </button>
+
+      <div id="overviewMenu">
+        <!-- Tables dropdown -->
+        <button class="nav-link" type="button" data-toggle="tablesSubmenu" aria-expanded="true">
+          🪑 Tables <span class="arrow">▲</span>
+        </button>
+        <div id="tablesSubmenu"><!-- filled by dashboard.js --></div>
+
+        <a href="#">📋 Menu</a>
+        <a href="#">🧾 Order</a>
+        <a href="/screens/reports">📈 Reports</a>
+      </div>
+
+      <div class="group-label">Manage</div>
+      <a href="#">👨‍🍳 Kitchen</a>
+      <a href="#">👥 Customers</a>
+      <a href="#">📦 Inventory</a>
+      <a href="#">🧑‍💼 Staff</a>
+      <a href="/screens/settings">⚙️ Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1 id="tableTitle">Table 1</h1>
+    <p class="meta" id="tableMeta">2 seats · Free</p>
+
+    <h2>Change status</h2>
+    <div class="status-actions" id="statusActions">
+      <button class="status-btn" type="button" data-status="free">Free</button>
+      <button class="status-btn" type="button" data-status="occupied">Occupied</button>
+      <button class="status-btn" type="button" data-status="reserved">Reserved</button>
+    </div>
+
+    <h2>Orders on this table</h2>
+    <div class="orders-card">No orders yet. Start one from the Order screen.</div>
+  </main>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

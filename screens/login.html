@@ -6,7 +6,7 @@
   <title>RestoDesk - Login</title>
   <link rel="stylesheet" href="../css/pages/login.css" />
 </head>
-<body>
+<body data-page="login">
   <main class="login-page">
     <form class="login-card" id="loginForm" novalidate>
       <h1 class="login-title">RestoDesk</h1>
@@ -18,12 +18,10 @@
       <label for="password">Password</label>
       <input type="password" id="password" placeholder="••••••••" required />
 
-      <p class="login-error" id="loginError" hidden></p>
-
-      <button type="submit" id="loginBtn">Sign in</button>
+      <button type="submit">Sign in</button>
     </form>
   </main>
 
-  <script type="module" src="../js/screens/login.js"></script>
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>
