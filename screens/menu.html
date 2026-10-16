@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restaurant menu</title>
+  <link rel="stylesheet" href="/css/pages/dashboard.css">
+  <link rel="stylesheet" href="/css/pages/menu.css">
+</head>
+<body class="dashboard" data-page="menu">
+
+  <aside class="sidebar">
+    <span class="brand">🍽️ Restaurant</span>
+
+    <nav>
+      <button class="nav-link" type="button" data-toggle="overviewMenu" aria-expanded="true">
+        📊 Overview <span class="arrow">▲</span>
+      </button>
+
+      <div id="overviewMenu">
+        <a href="/screens/dashboard">🪑 Tables</a>
+        <a href="/screens/menu" class="active">📋 Menu</a>
+        <a href="#">🧾 Order</a>
+        <a href="/screens/reports">📈 Reports</a>
+      </div>
+
+      <div class="group-label">Manage</div>
+      <a href="#">👨‍🍳 Kitchen</a>
+      <a href="#">👥 Customers</a>
+      <a href="#">📦 Inventory</a>
+      <a href="#">🧑‍💼 Staff</a>
+      <a href="/screens/settings">⚙️ Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1>Menu</h1>
+    <p class="meta" id="menuMeta"></p>
+
+    <div class="menu-toolbar">
+      <input type="search" id="menuSearch" placeholder="Search dishes..." />
+      <div class="category-tabs" id="categoryTabs"></div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+  </main>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

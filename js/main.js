@@ -2,12 +2,14 @@
 
 import { initLogin } from "./screens/login.js";
 import { initDashboard } from "./screens/dashboard.js";
+import { initMenu } from "./screens/menu.js";
 // import { initSettings } from "./screens/settings.js";   // add when you create it
 
 /* ---------- Screen registry: page name -> init function ---------- */
 const screens = {
   login: initLogin,
   dashboard: initDashboard,
+  menu: initMenu,
   // settings: initSettings,
 };
 
