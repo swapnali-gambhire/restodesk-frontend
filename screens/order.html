@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant dashboard – Order</title>
+  <link rel="stylesheet" href="/css/pages/order.css" />
+</head>
+<body data-page="order">
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">🍽️ Restaurant…</div>
+      <a class="nav-link" href="/screens/dashboard">📊 Overview</a>
+      <a class="nav-link" href="/screens/dashboard">🪑 Tables</a>
+      <a class="nav-link" href="/screens/menu">📋 Menu</a>
+      <a class="nav-link" href="/screens/order">🧾 Order</a>
+      <a class="nav-link" href="/screens/reports">📈 Reports</a>
+    </aside>
+
+    <main class="content">
+      <h1>New order</h1>
+      <p class="meta">Table 1 · 2 seats</p>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Menu</h2>
+          <div id="menuList"></div>
+        </section>
+
+        <section class="card">
+          <h2>Order summary</h2>
+          <ul id="orderList"></ul>
+          <p class="total">Total: <span id="total">₹0</span></p>
+          <button class="place" id="placeBtn">Place order</button>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
