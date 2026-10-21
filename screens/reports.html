@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant dashboard – Reports</title>
+  <link rel="stylesheet" href="/css/pages/reports.css" />
+</head>
+<body data-page="reports">
+  <div class="app">
+    <main class="content">
+      <div class="rp">
+
+        <h1>Reports</h1>
+        <p class="rp-meta" id="rpMeta"></p>
+
+        <h3 class="rp-label">Date range</h3>
+        <div class="rp-range" id="rpRange">
+        <div class="rp-upload">
+        <button id="rpUploadBtn">Upload CSV</button>
+        <input type="file" id="rpFile" accept=".csv" hidden />
+        </div>
+          <button data-range="today">Today</button>
+          <button data-range="week" class="active">Last 7 days</button>
+          <button data-range="month">Last 30 days</button>
+        </div>
+
+        <div class="rp-stats" id="rpStats"></div>
+
+        <div class="rp-grid">
+          <div>
+            <h3 class="rp-label">Daily sales</h3>
+            <section class="rp-card">
+              <div class="rp-bars" id="rpBars"></div>
+            </section>
+          </div>
+
+          <div>
+            <h3 class="rp-label">Top items</h3>
+            <section class="rp-card">
+              <ul class="rp-items" id="rpItems"></ul>
+            </section>
+          </div>
+        </div>
+
+        <h3 class="rp-label">Recent orders</h3>
+        <section class="rp-card">
+          <table class="rp-table">
+            <thead>
+              <tr><th>Order</th><th>Table</th><th>Status</th><th class="r">Amount</th></tr>
+            </thead>
+            <tbody id="rpOrders"></tbody>
+          </table>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
