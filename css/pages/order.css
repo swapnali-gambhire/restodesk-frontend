@@ -89,3 +89,19 @@ h2 { font-size: 17px; margin-bottom: 14px; }
   .sidebar { width: 100%; }
   .grid { grid-template-columns: 1fr; }
 }
+/* ===== ADDED: order line controls (−  +  ✕) ===== */
+#orderList li { align-items: center; gap: 10px; }
+#orderList li > span:first-child { flex: 1; }
+.line-ctrl { display: flex; gap: 4px; }
+.line-ctrl button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #e6e8ec;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+}
+.line-ctrl button:hover { background: #f3f4f6; }
+.line-ctrl .remove { color: #b42318; }
+/* ===== END ADDED ===== */

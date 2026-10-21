@@ -50,6 +50,47 @@ export function initOrder() {
     renderOrder();
   });
 
+  /* ===== ADDED: update / delete order items ===== */
+
+  // Adds −  +  ✕ buttons to each line after your renderOrder() runs
+  new MutationObserver(() => {
+    const ids = Object.keys(order);
+    orderList.querySelectorAll("li").forEach((li, i) => {
+      if (li.querySelector(".line-ctrl")) return;
+      const id = ids[i];
+      li.insertAdjacentHTML("beforeend", `
+        <div class="line-ctrl">
+          <button data-action="dec" data-id="${id}" aria-label="Decrease">−</button>
+          <button data-action="inc" data-id="${id}" aria-label="Increase">+</button>
+          <button class="remove" data-action="remove" data-id="${id}" aria-label="Remove">✕</button>
+        </div>`);
+    });
+  }).observe(orderList, { childList: true, subtree: true });
+
+  orderList.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-action]");
+    if (!btn) return;
+    const { action, id } = btn.dataset;
+
+    if (action === "inc") {
+      order[id] = (order[id] || 0) + 1;
+      // TODO: API -> update item quantity
+    }
+    if (action === "dec") {
+      order[id]--;
+      if (order[id] <= 0) delete order[id];
+      // TODO: API -> update quantity / delete when 0
+    }
+    if (action === "remove") {
+      delete order[id];
+      // TODO: API -> delete item
+    }
+
+    renderOrder();
+  });
+
+  /* ===== END ADDED ===== */
+
   renderMenu();
   renderOrder();
 }
