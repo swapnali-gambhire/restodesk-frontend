@@ -4,6 +4,7 @@ import { initLogin } from "./screens/login.js";
 import { initDashboard } from "./screens/dashboard.js";
 import { initMenu } from "./screens/menu.js";
 import { initOrder } from "./screens/order.js";
+import {initReports} from "./screens/reports.js"
 // import { initSettings } from "./screens/settings.js";   // add when you create it
 
 /* ---------- Screen registry: page name -> init function ---------- */
@@ -12,6 +13,7 @@ const screens = {
   dashboard: initDashboard,
   menu: initMenu,
   order: initOrder,
+  reports:initReports
   // settings: initSettings,
 };
 

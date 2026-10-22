@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  background: #f3f4f6;
+  color: #16233a;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.app { display: flex; min-height: 100vh; }
+.content { flex: 1; min-width: 0; padding: 32px; }
+
+.rp *, .rp *::before, .rp *::after { box-sizing: border-box; }
+
+/* Headings like your dashboard */
+.rp h1 { margin: 0; font-size: 28px; font-weight: 800; }
+.rp-meta { margin: 4px 0 24px; color: #7b8798; font-size: 14px; }
+.rp-label { margin: 24px 0 12px; font-size: 17px; font-weight: 700; }
+
+/* Range pills (same style as Free / Occupied / Reserved) */
+.rp-range { display: flex; gap: 10px; flex-wrap: wrap; }
+.rp-range button {
+  border: 1px solid #e7eaef;
+  background: #fff;
+  color: #16233a;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.rp-range button:hover { background: #f8f9fb; }
+.rp-range button.active {
+  background: #00c875;
+  border-color: #00c875;
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 200, 117, 0.25);
+}
+
+/* Summary cards */
+.rp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.rp-stat {
+  background: #fff;
+  border: 1px solid #e7eaef;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.rp-stat span { color: #7b8798; font-size: 14px; }
+.rp-stat b { display: block; font-size: 26px; font-weight: 800; margin: 6px 0 4px; }
+.rp-stat small { font-size: 13px; font-weight: 700; }
+.rp-stat small.up   { color: #00c875; }
+.rp-stat small.down { color: #ff4d5e; }
+
+/* Cards */
+.rp-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 16px;
+}
+.rp-grid .rp-label { margin-top: 24px; }
+.rp-card {
+  background: #fff;
+  border: 1px solid #e7eaef;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+/* Bar chart */
+.rp-bars {
+  height: 230px;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  padding-top: 24px;
+}
+.rp-col {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 13px;
+  color: #7b8798;
+}
+.rp-bar {
+  position: relative;
+  width: 100%;
+  max-width: 44px;
+  background: #b9efd8;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 8px;
+}
+.rp-bar.peak, .rp-bar:hover { background: #00c875; }
+.rp-bar::after {
+  content: attr(data-value);
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #14263d;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.rp-bar:hover::after { opacity: 1; }
+
+/* Top items */
+.rp-items { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.rp-item-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.rp-item-top span { color: #7b8798; }
+.rp-track { height: 8px; background: #eef1f5; border-radius: 99px; overflow: hidden; }
+.rp-fill  { height: 100%; background: #00c875; border-radius: 99px; }
+
+/* Orders table */
+.rp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.rp-table th {
+  text-align: left;
+  color: #7b8798;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0 10px 10px;
+  border-bottom: 1px solid #e7eaef;
+}
+.rp-table td { padding: 14px 10px; border-bottom: 1px solid #e7eaef; }
+.rp-table tr:last-child td { border-bottom: none; }
+.rp-table .r { text-align: right; }
+.rp-table td.r { font-weight: 700; }
+
+/* Status pills (same colors as dashboard) */
+.rp-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.rp-badge.paid      { background: #00c875; }
+.rp-badge.pending   { background: #ffa43a; }
+.rp-badge.cancelled { background: #ff4d5e; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .rp-stats { grid-template-columns: repeat(2, 1fr); }
+  .rp-grid  { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .content { padding: 20px 16px; }
+  .rp-stats { grid-template-columns: 1fr; }
+}
